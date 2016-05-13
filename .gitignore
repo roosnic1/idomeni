@@ -62,4 +62,5 @@ fabric.properties
 
 # Actual Project
 c_img
+app/content.json
 bower_components
