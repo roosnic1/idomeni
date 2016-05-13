@@ -20,11 +20,72 @@
 (function() {
   'use strict';
 
+  var setSlideHeight = function() {
+    var slides = document.getElementsByClassName('slide');
+    Object.keys(slides).map(function(k) {
+      slides[k].style.height = window.innerHeight + 'px';
+    });
+
+    var title = document.getElementById('title');
+    var firstSlide = document.getElementById('first-slide')
+    title.style.top = ((window.innerHeight - firstSlide.getClientRects()[0].height) / 2 - 27) + 'px';
+  };
+
+  window.addEventListener('resize', setSlideHeight, false);
+  setSlideHeight();
+
+
+  var content = [
+    {
+      type: 'image',
+      value: '/images/DSCF1856.JPG'
+    },
+    {
+      type: 'text',
+      value: 'die angst vor dem fremden rührt nicht daher, dass der muslimische glaube zu stark, sondern unsere westlichen ideale zu schwach sind.'
+    },
+    {
+      type: 'image',
+      value: '/images/DSCF1946.JPG'
+    }
+  ];
+
+  // fetch()
+
+  setTimeout(function() {
+    var mainContainer = document.getElementById('main-container');
+    content.map(function(c) {
+      var newSlide = document.createElement('div');
+      newSlide.classList.add('row', 'center-xs', 'middle-xs', 'slide');
+
+      var col = document.createElement('div');
+
+
+      var con;
+
+      if(c.type === 'image') {
+        col.classList.add('col-xs-12');
+        con = document.createElement('img');
+        con.classList.add('slide__image');
+        con.setAttribute('src',c.value);
+      } else {
+        col.classList.add('col-xs-6');
+        con = document.createElement('div');
+        con.classList.add('slide__text');
+        con.innerHTML = c.value;
+      }
+      col.appendChild(con);
+      newSlide.appendChild(col);
+      mainContainer.appendChild(newSlide);
+    });
+    setSlideHeight();
+  },0);
+
   // Check to make sure service workers are supported in the current browser,
   // and that the current page is accessed from a secure origin. Using a
   // service worker from an insecure origin will trigger JS console errors. See
   // http://www.chromium.org/Home/chromium-security/prefer-secure-origins-for-powerful-new-features
-  var isLocalhost = Boolean(window.location.hostname === 'localhost' ||
+  /* var isLocalhost = Boolean(window.location.hostname === 'localhost' ||
       // [::1] is the IPv6 localhost address.
       window.location.hostname === '[::1]' ||
       // 127.0.0.1/8 is considered localhost for IPv4.
@@ -77,7 +138,7 @@
     }).catch(function(e) {
       console.error('Error during service worker registration:', e);
     });
-  }
+  } */
 
   // Your custom JavaScript goes here
 })();
