@@ -50,11 +50,11 @@
     }
   ];
 
-  // fetch()
-
-  setTimeout(function() {
+  fetch('/content.json').then(function(response) {
+    return response.json();
+  }).then(function(data) {
     var mainContainer = document.getElementById('main-container');
-    content.map(function(c) {
+    data.map(function(c) {
       var newSlide = document.createElement('div');
       newSlide.classList.add('row', 'center-xs', 'middle-xs', 'slide');
 
@@ -79,8 +79,8 @@
       mainContainer.appendChild(newSlide);
     });
     setSlideHeight();
-  },0);
-
+  });
+  
   // Check to make sure service workers are supported in the current browser,
   // and that the current page is accessed from a secure origin. Using a
   // service worker from an insecure origin will trigger JS console errors. See
