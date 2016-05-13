@@ -1,0 +1,18 @@
+{
+  "name": "idomeni",
+  "description": "",
+  "main": "app/index.html",
+  "authors": [
+    "Nicolas Roos <nicolas.k.roos@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/roosnic1/idomeni",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
