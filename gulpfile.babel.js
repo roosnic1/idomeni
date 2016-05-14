@@ -132,7 +132,7 @@ gulp.task('html', () => {
     // Remove any unused CSS
     .pipe($.if('*.css', $.uncss({
       html: [
-        'app/index.html'
+        'app/idomeni.html'
       ],
       // CSS Selectors for UnCSS to ignore
       ignore: []

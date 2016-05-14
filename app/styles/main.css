@@ -49,6 +49,25 @@ html, body {
   font-size: 14px;
 }
 
+.link--image {
+  height: 150px;
+}
+
+.link--text {
+  text-decoration: none;
+  color: black;
+  font-family: 'Roboto Mono';
+  font-size: 40px;
+}
+
+.link {
+  margin-top: 400px;
+}
+
+.link a {
+  text-decoration: none;
+}
+
 
 @media only screen and (min-width: 62em) {
 
